@@ -34,6 +34,12 @@ class Playlists(Resource):
         query = conn.execute("select distinct Name from playlists")
         return {'playlists': [i[0] for i in query.cursor.fetchall()]}  
 
+
+
+@app.route("/")
+def main():
+	return "Welcome"
+	
 api.add_resource(Songs_Of_Artist, '/artists/<string:artist_id>')
 api.add_resource(Show_Artists, '/artists')
 api.add_resource(Playlists,'/playlists')
